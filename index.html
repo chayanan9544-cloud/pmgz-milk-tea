@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGZ | Milk Tea — Good Tea, Good Day</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #7B66B2;
+            --light: #F3EFFF;
+            --accent: #B4A7D6;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+
+        body {
+            background: linear-gradient(135deg, #F3EFFF, #EDE4FF);
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            letter-spacing: 6px;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 8px 30px rgba(123, 102, 178, 0.15);
+            text-align: center;
+        }
+
+        .product-img-placeholder {
+            width: 220px;
+            height: 300px;
+            background: linear-gradient(145deg, #E2D5F8, #C9B8F0);
+            border-radius: 20px;
+            margin: 0 auto 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary);
+        }
+
+        .product-description h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            border-bottom: 1px dashed #E5E0F2;
+        }
+
+        .cert-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .cert-badge {
+            background: var(--light);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .source-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .source-box h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .source-box p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .promo-section {
+            background: linear-gradient(135deg, #F3EFFF, #EDE4FF);
+            border: 3px dashed var(--primary);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .promo-section h3 {
+            color: var(--primary);
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .price-box {
+            background: #fff;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .price small {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .announcement {
+            background: #FFF8E1;
+            border-left: 5px solid #F57C00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .announcement h4 {
+            color: #E65100;
+            margin-bottom: 10px;
+        }
+
+        .plan-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            text-align: left;
+        }
+
+        .plan-section h3 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .plan-item {
+            margin-bottom: 18px;
+        }
+
+        .plan-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .reference-note {
+            background: #E8F5E9;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #2E7D32;
+        }
+
+        .order-btn {
+            display: block;
+            background: linear-gradient(90deg, #7B66B2, #9B85D6);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            margin: 30px 0;
+            transition: transform 0.2s;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .members {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .members h4 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .members ul {
+            list-style: none;
+            columns: 2;
+        }
+
+        .members li {
+            padding: 5px 0;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PMGZ</h1>
+            <h2>MILK TEA 🦋</h2>
+            <p class="tagline">"Good Tea, Good Day — EST. 2024"</p>
+        </header>
+
+        <div class="product-card">
+            <div class="product-img-placeholder">🦋🥛</div>
+            <div class="product-description">
+                <h3>ชานมไข่มุกพร้อมดื่มคุณภาพระดับพรีเมียม</h3>
+                <p>คัดสรรใบชาเกรดพรีเมียมผสมผสานกับนมคุณภาพดี ไข่มุกเคี้ยวหนึบหนับ สะอาด ปลอดภัย ได้รสชาติหอมกลมกล่อมเหมือนเพิ่งชงเสร็จ 🦋✨</p>
+                
+                <div class="cert-badges">
+                    <span class="cert-badge">✅ GMP</span>
+                    <span class="cert-badge">✅ HACCP</span>
+                    <span class="cert-badge">✅ HALAL</span>
+                    <span class="cert-badge">✅ อย. เลขสารบบอาหาร</span>
+                </div>
+
+                <ul class="feature-list">
+                    <li>🦋 <strong>ส่วนผสม:</strong> ใบชาผสมเกรดพรีเมียม 4 ชนิด, นมผสมจากนมวัวแท้, น้ำตาลทรายบริสุทธิ์, ไข่มุกมันสำปะหลัง 100% ไม่ใช้วัตถุกันเสีย</li>
+                    <li>🧋 <strong>มาตรฐานการผลิต:</strong> ผลิตที่โรงงานที่ได้รับรอง GMP, HACCP, และ HALAL ตามหลักเกณฑ์กระทรวงสาธารณสุข</li>
+                    <li>📋 <strong>ขั้นตอนการขออนุญาต:</strong> ยื่นขอใบอนุญาตสถานที่ผลิต + เลขสารบบอาหาร (13 หลัก) ผ่านระบบ e-FDA ของสำนักงานคณะกรรมการอาหารและยา</li>
+                    <li>🌡️ <strong>กระบวนการผลิต:</strong> ผสม → ฆ่าเชื้อด้วยระบบความร้อน → บรรจุขวดแบบปิดสนิท → ตรวจสอบคุณภาพทุกล็อตในห้องปฏิบัติการ</li>
+                    <li>📦 <strong>อายุการเก็บรักษา:</strong> 9 เดือนจากวันผลิต (เก็บในที่แห้งและอุณหภูมิปกติ ไม่ใส่วัตถุกันเสีย)</li>
+                </ul>
+
+                <div class="source-box">
+                    <h4>📖 แหล่งอ้างอิงข้อมูล</h4>
+                    <p>
+                        [1] กองอาหาร สำนักงานคณะกรรมการอาหารและยา — คู่มือการขออนุญาตเครื่องดื่มในภาชนะบรรจุที่ปิดสนิท<br>
+                        [2] สหชลผลพืช — มาตรฐานการผลิตเครื่องดื่มระบบ UHT<br>
+                        [3] ภาขจร ฟูดส์ — มาตรฐาน GMP/HACCP/HALAL สำหรับโรงงานผลิตอาหาร<br>
+                        [4] ธนาคารกรุงศรี — ภาพรวมอุตสาหกรรมเครื่องดื่มไทย 2026–2028
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="promo-section">
+            <h3>📢 โปรโมชันแนะนำแบรนด์</h3>
+            <div class="price-box">
+                <div class="price">25 บาท / ขวด (500 มล.)</div>
+            </div>
+            <div class="price-box">
+                <div class="price">ซื้อ 2 ขวด 45 บาท <small>(ปกติ 50 บาท)</small></div>
+            </div>
+            <div class="price-box">
+                <div>🎁 ลูกค้าใหม่: รับส่วนลด 10% ครั้งถัดไปเมื่อแชร์ผลงาน</div>
+            </div>
+            <p style="text-align:center; margin-top:15px; color:#666;">📌 โปรโมชัน: วันนี้ – 15 ธันวาคม 2569</p>
+        </div>
+
+        <a href="#" class="order-btn">🛒 สั่งซื้อได้ที่นี่</a>
+
+        <div class="announcement">
+            <h4>⚠️ ประกาศแจ้งลูกค้า — สถานการณ์การขนส่ง</h4>
+            <p>เนื่องจากสภาพอากาศและเส้นทางขนส่งในบางพื้นที่ได้รับผลกระทบ ทำให้การจัดส่งอาจล่าช้า 1–2 วัน ทางทีมงานขออภัยและกำลังประสานงานกับผู้ให้บริการขนส่งรายหลักเพื่อจัดหาเส้นทางสำรอง และแจ้งสถานะการจัดส่งให้ลูกค้าทราบทันทีเมื่อมีความคืบหน้า 🙏</p>
+        </div>
+
+        <div class="plan-section">
+            <h3>🏭 แผนบริหารจัดการห่วงโซ่อุปทานและความเสี่ยง</h3>
+            <p style="color:#666; margin-bottom:20px; font-size:0.9rem;">อ้างอิงแนวทางการบริหารความเสี่ยงอุตสาหกรรมเครื่องดื่ม</p>
+            
+            <div class="plan-item">
+                <strong>📋 1. การจัดหาวัตถุดิบ</strong>
+                <span>คัดเลือกคู่ค้าอย่างน้อย 2 รายต่อประเภทวัตถุดิบ เพื่อกระจายความเสี่ยง สั่งหน้าล่วงหน้า 30–45 วัน และทำสัญญาราคาล่วงหน้า ประเมินความเสี่ยงจากสภาพภูมิอากาศและต้นทุนเชื้อเพลิงเป็นประจำทุกไตรมาส</span>
+            </div>
+            <div class="plan-item">
+                <strong>🏭 2. การผลิตและควบคุมคุณภาพ</strong>
+                <span>ผลิตตามมาตรฐาน GMP และ HACCP ทุกขั้นตอน แบ่งไลน์ผลิตเป็นโซนสะอาด-กึ่งสะอาด-ทั่วไป ตรวจสอบคุณภาพวัตถุดิบนำเข้า กระบวนการผลิต และสินค้าสำเร็จรูปก่อนจัดส่งทุกล็อต</span>
+            </div>
+            <div class="plan-item">
+                <strong>🚚 3. การขนส่งและจัดจำหน่าย</strong>
+                <span>ประสานงานกับผู้ให้บริการขนส่งหลายราย มีเส้นทางหลักและเส้นทางสำรอง จัดกลุ่มพื้นที่จัดส่งเพื่อลดต้นทุนและเวลา จัดทำแผนฉุกเฉินเมื่อเส้นทางปิดหรือไม่สามารถเข้าถึงได้</span>
+            </div>
+            <div class="plan-item">
+                <strong>💰 4. การบริหารต้นทุนและสินค้าคงคลัง</strong>
+                <span>เก็บรักษาวัตถุดิบและสินค้าสำเร็จรูปตามอุณหภูมิที่กำหนด คำนวณจุดสั่งซื้อที่เหมาะสมเพื่อลดต้นทุนการเก็บรักษา ควบคุมค่าใช้จ่ายที่ไม่จำเป็นในช่วงวิกฤต</span>
+            </div>
+            <div class="plan-item">
+                <strong>🛡️ 5. การบริหารความเสี่ยงและแผนสำรอง</strong>
+                <span>แบ่งความเสี่ยงเป็น 4 ด้าน — การผลิต, การเงิน, ห่วงโซ่อุปทาน, และปฏิบัติการ ประเมินโอกาสและผลกระทบ จัดทำแผนรองรับ และทบทวนแผนทุกไตรมาส</span>
+            </div>
+
+            <div class="reference-note">
+                <strong>📚 แหล่งอ้างอิงแผนบริหาร:</strong><br>
+                • ThaiBev — การบริหารความเสี่ยงและห่วงโซ่อุปทาน<br>
+                • Haad Thip — การจัดการวิกฤตและความเสี่ยงด้านการขนส่ง<br>
+                • Krungsri Research — อุตสาหกรรมเครื่องดื่มไทย 2026–2028
+            </div>
+        </div>
+
+        <div class="members">
+            <h4>👥 สมาชิกผู้จัดทำ</h4>
+            <ul>
+                <li>ชยานันท์ 551</li>
+                <li>กัญญาภัค 577</li>
+                <li>กัญญา 130</li>
+                <li>นฤมล 254</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>PMGZ Milk Tea — Good Tea, Good Day 🦋🥛 EST. 2024</p>
+            <p style="font-size:0.8rem; margin-top:8px;">ข้อมูลอ้างอิงจากสำนักงานคณะกรรมการอาหารและยา, กระทรวงสาธารณสุข และรายงานอุตสาหกรรม ปี 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
